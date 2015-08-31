@@ -47,8 +47,15 @@ WriteLiteral("\r\n");
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n<h2>Index</h2>\r\nThis is from the module\r\n\r\n");
+WriteLiteral("\r\n\r\n<h2>Index</h2>\r\nThis is from the module\r\n\r\n<p></p>\r\n");
 
+            
+            #line 10 "..\..\Views\Home\Index.cshtml"
+Write(Html.Partial("~/views/partials/SearchForm.cshtml"));
+
+            
+            #line default
+            #line hidden
         }
     }
 }

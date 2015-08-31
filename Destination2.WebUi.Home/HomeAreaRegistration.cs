@@ -16,7 +16,7 @@ namespace Destination2.WebUi
         {
             context.MapRoute(
                 "Home_default",
-                "Test",
+                "",
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional, area= "Home" },
                 new[] { "Destination2.WebUi.Home.Controllers" }
             );
