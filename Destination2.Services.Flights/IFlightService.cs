@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
+﻿using Destination2.Services.Flights.Entities;
 using System.ServiceModel;
-using System.Text;
 
 namespace Destination2.Services.Flights
 {
@@ -12,6 +8,9 @@ namespace Destination2.Services.Flights
     public interface IFlightService
     {
         [OperationContract]
-        void DoWork();
+        FlightSearchResult StartSearch(FlightSearch flightSearch);
+
+        [OperationContract]
+        FlightSearchResult RetriveSearch(int id);
     }
 }

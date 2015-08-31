@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Destination2.WebUi.PackageSearch
+namespace Destination2.WebUi
 {
     public class PackageSearchAreaRegistration : AreaRegistration
     {
@@ -20,8 +20,15 @@ namespace Destination2.WebUi.PackageSearch
         {
             context.MapRoute(
                 "PackageSerarchWaitFlight",
-                "FlightWait",
-                new { controller = "Wait", action = "Index", id = UrlParameter.Optional, area = "Home" },
+                "Search/Package-Flight-Wait",
+                new { controller = "Wait", action = "FlightWait", id = UrlParameter.Optional, area = "PackageSearch" },
+                new[] { "Destination2.WebUi.PackageSearch.Controllers" }
+            );
+
+            context.MapRoute(
+                "PackageSerarchWaitFlightSearchStart",
+                "Search/Package-Flight-Start",
+                new { controller = "Wait", action = "FlightSearchStart", id = UrlParameter.Optional, area = "PackageSearch" },
                 new[] { "Destination2.WebUi.PackageSearch.Controllers" }
             );
         }

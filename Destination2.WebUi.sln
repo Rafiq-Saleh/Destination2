@@ -8,10 +8,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Destination2.WebUi", "Destination2.WebUi\Destination2.WebUi.csproj", "{E5F38582-0EFF-47B7-8AA6-67DF89B7DEA5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Destination2.WebUi.PackageSearch", "Destination2.WebUi.PackageSearch\Destination2.WebUi.PackageSearch.csproj", "{CF837180-B9D6-4C92-B2DD-FC322009CAA0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{728B96BE-C723-4105-9AEF-A8C3D41FAE99} = {728B96BE-C723-4105-9AEF-A8C3D41FAE99}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{8DC25F9A-C5F9-4D63-A314-88DF23A8DD06}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Destination2.WebUi.Search", "Destination2.WebUi.Search\Destination2.WebUi.Search.csproj", "{95786ED4-4274-4627-8612-03DE0C8AC7C6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{728B96BE-C723-4105-9AEF-A8C3D41FAE99} = {728B96BE-C723-4105-9AEF-A8C3D41FAE99}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{DC0A8F97-C91E-4922-8DE5-E4561D1E7EE9}"
 EndProject

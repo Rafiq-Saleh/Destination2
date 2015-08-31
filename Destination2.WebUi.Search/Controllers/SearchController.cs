@@ -1,6 +1,9 @@
-﻿using System;
+﻿
+using Destination2.WebUi.Search.ServiceFlights;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,13 +15,22 @@ namespace Destination2.WebUi.Search.Controllers
         [AcceptVerbs("POST")]
         public ActionResult ProcessSearchFormInput()
         {
+            // passed in here will the a nice big search object
+
             // this method works out what the search type is.
             // from here we can then work out how we do the search.
 
-            // eg hit a web service to trigger the search off
-            // this then returns whatever we need for a place wait page then it will pulse to check if the page is loaded yet
-            
-            return View();
+            // for now we are going to pretend it is a package search
+            // this call will prep the search           
+            FlightServiceClient flightServiceClient = new FlightServiceClient();            
+            var flightSearchResult = flightServiceClient.StartSearch(new FlightSearch
+            {
+                IsPackage = true,
+                SearchType = "Package"
+            });
+
+            // this will change depending on the search type
+            return Redirect("search/package-flight-wait/?id=" + flightSearchResult.FlightSearchId);
         }
     }
 }

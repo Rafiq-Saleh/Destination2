@@ -84,7 +84,9 @@
   <ItemGroup>
     <Compile Include="Business\Search\Search.cs" />
     <Compile Include="Business\SessionService.cs" />
+    <Compile Include="Data\SearchRepository.cs" />
     <Compile Include="Entities\FlightSearch.cs" />
+    <Compile Include="Entities\FlightSearchResult.cs" />
     <Compile Include="Entities\SessionEnum.cs" />
     <Compile Include="FlightService.svc.cs">
       <DependentUpon>FlightService.svc</DependentUpon>
@@ -93,7 +95,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\" />
     <Folder Include="Tests\Intergration\" />
     <Folder Include="Tests\Unit\" />
   </ItemGroup>

@@ -52,6 +52,8 @@
       <HintPath>..\packages\RazorGenerator.Mvc.2.3.6\lib\net40\RazorGenerator.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -98,6 +100,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Service References\ServiceFlights\Destination2.WebUi.Search.ServiceFlights.FlightSearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ServiceFlights\FlightService.disco" />
+    <None Include="Service References\ServiceFlights\configuration91.svcinfo" />
+    <None Include="Service References\ServiceFlights\configuration.svcinfo" />
+    <None Include="Service References\ServiceFlights\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +121,11 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchAreaRegistration.cs" />
+    <Compile Include="Service References\ServiceFlights\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Views\Partials\SearchForm.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -122,6 +139,16 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>SearchForm.generated.cs</LastGenOutput>
     </Content>
+    <None Include="Service References\ServiceFlights\FlightService.wsdl" />
+    <None Include="Service References\ServiceFlights\FlightService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceFlights\FlightService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceFlights\FlightService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -133,6 +160,12 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Search\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceFlights\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

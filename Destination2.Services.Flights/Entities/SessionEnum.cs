@@ -2,6 +2,6 @@
 {
     internal enum SessionEnum
     {
-        LastSearch
+        FlightSearch
     }
 }
