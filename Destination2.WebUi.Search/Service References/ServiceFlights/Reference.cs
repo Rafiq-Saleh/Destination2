@@ -84,10 +84,16 @@ namespace Destination2.WebUi.Search.ServiceFlights {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorMessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Destination2.WebUi.Search.ServiceFlights.FlightSearch FlightSearchField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int FlightSearchIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool SuccessField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -96,6 +102,19 @@ namespace Destination2.WebUi.Search.ServiceFlights {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorMessage {
+            get {
+                return this.ErrorMessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorMessageField, value) != true)) {
+                    this.ErrorMessageField = value;
+                    this.RaisePropertyChanged("ErrorMessage");
+                }
             }
         }
         
@@ -125,6 +144,19 @@ namespace Destination2.WebUi.Search.ServiceFlights {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Success {
+            get {
+                return this.SuccessField;
+            }
+            set {
+                if ((this.SuccessField.Equals(value) != true)) {
+                    this.SuccessField = value;
+                    this.RaisePropertyChanged("Success");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -144,6 +176,18 @@ namespace Destination2.WebUi.Search.ServiceFlights {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFlightService/StartSearch", ReplyAction="http://tempuri.org/IFlightService/StartSearchResponse")]
         System.Threading.Tasks.Task<Destination2.WebUi.Search.ServiceFlights.FlightSearchResult> StartSearchAsync(Destination2.WebUi.Search.ServiceFlights.FlightSearch flightSearch);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFlightService/RetriveSearch", ReplyAction="http://tempuri.org/IFlightService/RetriveSearchResponse")]
+        Destination2.WebUi.Search.ServiceFlights.FlightSearch RetriveSearch(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFlightService/RetriveSearch", ReplyAction="http://tempuri.org/IFlightService/RetriveSearchResponse")]
+        System.Threading.Tasks.Task<Destination2.WebUi.Search.ServiceFlights.FlightSearch> RetriveSearchAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFlightService/PerformSearch", ReplyAction="http://tempuri.org/IFlightService/PerformSearchResponse")]
+        Destination2.WebUi.Search.ServiceFlights.FlightSearchResult PerformSearch(Destination2.WebUi.Search.ServiceFlights.FlightSearch flightSearch, int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFlightService/PerformSearch", ReplyAction="http://tempuri.org/IFlightService/PerformSearchResponse")]
+        System.Threading.Tasks.Task<Destination2.WebUi.Search.ServiceFlights.FlightSearchResult> PerformSearchAsync(Destination2.WebUi.Search.ServiceFlights.FlightSearch flightSearch, int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -179,6 +223,22 @@ namespace Destination2.WebUi.Search.ServiceFlights {
         
         public System.Threading.Tasks.Task<Destination2.WebUi.Search.ServiceFlights.FlightSearchResult> StartSearchAsync(Destination2.WebUi.Search.ServiceFlights.FlightSearch flightSearch) {
             return base.Channel.StartSearchAsync(flightSearch);
+        }
+        
+        public Destination2.WebUi.Search.ServiceFlights.FlightSearch RetriveSearch(int id) {
+            return base.Channel.RetriveSearch(id);
+        }
+        
+        public System.Threading.Tasks.Task<Destination2.WebUi.Search.ServiceFlights.FlightSearch> RetriveSearchAsync(int id) {
+            return base.Channel.RetriveSearchAsync(id);
+        }
+        
+        public Destination2.WebUi.Search.ServiceFlights.FlightSearchResult PerformSearch(Destination2.WebUi.Search.ServiceFlights.FlightSearch flightSearch, int id) {
+            return base.Channel.PerformSearch(flightSearch, id);
+        }
+        
+        public System.Threading.Tasks.Task<Destination2.WebUi.Search.ServiceFlights.FlightSearchResult> PerformSearchAsync(Destination2.WebUi.Search.ServiceFlights.FlightSearch flightSearch, int id) {
+            return base.Channel.PerformSearchAsync(flightSearch, id);
         }
     }
 }

@@ -1,0 +1,959 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://stellatravelgateway.stellatravel.co.uk/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://stellatravelgateway.stellatravel.co.uk/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://stellatravelgateway.stellatravel.co.uk/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="Authenticate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticateRequest" type="tns:AuthenticateRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AuthenticateRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BranchID" nillable="true" type="s:int" />
+        </s:sequence>
+        <s:attribute name="BranchCode" type="s:string" />
+        <s:attribute name="UserName" type="s:string" />
+        <s:attribute name="Password" type="s:string" />
+        <s:attribute name="Application" type="s:string" />
+        <s:attribute name="Client" type="s:string" />
+        <s:attribute name="RemoteIPAddress" type="s:string" />
+      </s:complexType>
+      <s:element name="AuthenticateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenticateResult" type="tns:AuthenticateResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AuthenticateResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResultBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Token" nillable="true" type="s1:guid" />
+              <s:element minOccurs="1" maxOccurs="1" name="Expiry" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="UserProfile" type="tns:UserProfile" />
+              <s:element minOccurs="0" maxOccurs="1" name="AgencyProfile" type="tns:AgencyProfile" />
+              <s:element minOccurs="0" maxOccurs="1" name="UserRoles" type="tns:ArrayOfString" />
+              <s:element minOccurs="0" maxOccurs="1" name="AgencyRoles" type="tns:ArrayOfString" />
+              <s:element minOccurs="0" maxOccurs="1" name="AgencyApplicationSettings" type="tns:ArrayOfAgencyApplicationSetting" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ResultBase" abstract="true">
+        <s:attribute name="Success" type="s:boolean" use="required" />
+        <s:attribute name="Narrative" type="s:string" />
+        <s:attribute name="CanBeOpenedInEditMode" type="s:boolean" use="required" />
+      </s:complexType>
+      <s:complexType name="UserProfile">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BranchID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FaresOnlineCommissionRate" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="FaresOnlineCommissionIsPercentage" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllowMarketingInfo" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DisplaySearchedPostcode" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="BranchName" type="s:string" />
+        </s:sequence>
+        <s:attribute name="UserID" type="s:int" use="required" />
+        <s:attribute name="UserName" type="s:string" />
+        <s:attribute name="Title" type="s:string" />
+        <s:attribute name="Forename" type="s:string" />
+        <s:attribute name="Surname" type="s:string" />
+        <s:attribute name="Suffix" type="s:string" />
+        <s:attribute name="FullName" type="s:string" />
+        <s:attribute name="LandlineTelephoneNumber" type="s:string" />
+        <s:attribute name="MobileTelephoneNumber" type="s:string" />
+        <s:attribute name="FaxNumber" type="s:string" />
+        <s:attribute name="EmailAddress" type="s:string" />
+        <s:attribute name="Enabled" type="s:boolean" use="required" />
+        <s:attribute name="BranchCode" type="s:string" />
+        <s:attribute name="BranchPassphrase" type="s:string" />
+        <s:attribute name="DefaultAirportCode" type="s:string" />
+        <s:attribute name="Password" type="s:string" />
+        <s:attribute name="RewardSchemeUserName" type="s:string" />
+        <s:attribute name="RewardSchemeUserPassword" type="s:string" />
+        <s:attribute name="RewardSchemeEnabled" type="s:boolean" use="required" />
+        <s:attribute name="CarHireLoginUrl" type="s:string" />
+        <s:attribute name="CrmUserName" type="s:string" />
+        <s:attribute name="Postcode" type="s:string" />
+      </s:complexType>
+      <s:complexType name="AgencyProfile">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BranchID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BranchPassphrase" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="tns:Address" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsATOLRegistered" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DefaultFareValidationGds" nillable="true" type="tns:FareValidationGds" />
+          <s:element minOccurs="0" maxOccurs="1" name="AgencyGroups" type="tns:ArrayOfGroup" />
+          <s:element minOccurs="0" maxOccurs="1" name="SelectedMidOfficeConfiguration" type="tns:ArrayOfSelectedMidOfficeConfiguration" />
+        </s:sequence>
+        <s:attribute name="BranchCode" type="s:string" />
+        <s:attribute name="Name" type="s:string" />
+        <s:attribute name="LandlineTelephoneNumber" type="s:string" />
+        <s:attribute name="MobileTelephoneNumber" type="s:string" />
+        <s:attribute name="FaxNumber" type="s:string" />
+        <s:attribute name="EmailAddress" type="s:string" />
+        <s:attribute name="IsABTARegistered" type="s:boolean" use="required" />
+        <s:attribute name="IsVATRegistered" type="s:boolean" use="required" />
+        <s:attribute name="FinanceConfiguration" type="s:string" />
+        <s:attribute name="RewardSchemeName" type="s:string" />
+        <s:attribute name="RewardSchemeEnabled" type="s:boolean" use="required" />
+        <s:attribute name="RewardSchemeURL" type="s:string" />
+        <s:attribute name="PackageGds" type="tns:PackageGds" use="required" />
+      </s:complexType>
+      <s:complexType name="Address">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Longitude" nillable="true" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Latitude" nillable="true" type="s:double" />
+        </s:sequence>
+        <s:attribute name="HouseNameOrNumber" type="s:string" />
+        <s:attribute name="AddressLine1" type="s:string" />
+        <s:attribute name="AddressLine2" type="s:string" />
+        <s:attribute name="Locality" type="s:string" />
+        <s:attribute name="City" type="s:string" />
+        <s:attribute name="County" type="s:string" />
+        <s:attribute name="Country" type="s:string" />
+        <s:attribute name="Postcode" type="s:string" />
+        <s:attribute name="TelephoneNumber" type="s:string" />
+        <s:attribute name="FaxNumber" type="s:string" />
+        <s:attribute name="EmailAddress" type="s:string" />
+      </s:complexType>
+      <s:simpleType name="FareValidationGds">
+        <s:restriction base="s:string">
+          <s:enumeration value="Galileo" />
+          <s:enumeration value="Amadeus" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfGroup">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Group" nillable="true" type="tns:Group" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Group">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSelectedMidOfficeConfiguration">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SelectedMidOfficeConfiguration" nillable="true" type="tns:SelectedMidOfficeConfiguration" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SelectedMidOfficeConfiguration">
+        <s:attribute name="ID" type="s:int" use="required" />
+        <s:attribute name="MidOfficeCode" type="s:string" />
+        <s:attribute name="Selected" type="s:boolean" use="required" />
+        <s:attribute name="DisplayText" type="s:string" />
+      </s:complexType>
+      <s:simpleType name="PackageGds">
+        <s:list>
+          <s:simpleType>
+            <s:restriction base="s:string">
+              <s:enumeration value="None" />
+              <s:enumeration value="Worldspan" />
+              <s:enumeration value="Galileo" />
+            </s:restriction>
+          </s:simpleType>
+        </s:list>
+      </s:simpleType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAgencyApplicationSetting">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AgencyApplicationSetting" nillable="true" type="tns:AgencyApplicationSetting" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AgencyApplicationSetting">
+        <s:attribute name="ID" type="s:int" use="required" />
+        <s:attribute name="AgencyApplicationID" type="s:int" use="required" />
+        <s:attribute name="SettingName" type="s:string" />
+        <s:attribute name="SettingValue" type="s:string" />
+      </s:complexType>
+      <s:element name="ResendPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="resendPasswordRequest" type="tns:ResendPasswordRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResendPasswordRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BranchID" nillable="true" type="s:int" />
+        </s:sequence>
+        <s:attribute name="BranchCode" type="s:string" />
+        <s:attribute name="UserName" type="s:string" />
+        <s:attribute name="EmailAddress" type="s:string" />
+        <s:attribute name="FromEmailAddressOverride" type="s:string" />
+      </s:complexType>
+      <s:element name="ResendPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResendPasswordResult" type="tns:ResendPasswordResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResendPasswordResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResultBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ResetPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="resetPasswordRequest" type="tns:ResetPasswordRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResetPasswordRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BranchID" nillable="true" type="s:int" />
+        </s:sequence>
+        <s:attribute name="BranchCode" type="s:string" />
+        <s:attribute name="UserName" type="s:string" />
+        <s:attribute name="EmailAddress" type="s:string" />
+        <s:attribute name="FromEmailAddressOverride" type="s:string" />
+      </s:complexType>
+      <s:element name="ResetPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResetPasswordResult" type="tns:ResetPasswordResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResetPasswordResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResultBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ChangePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="changePasswordRequest" type="tns:ChangePasswordRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ChangePasswordRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BranchID" nillable="true" type="s:int" />
+        </s:sequence>
+        <s:attribute name="BranchCode" type="s:string" />
+        <s:attribute name="UserName" type="s:string" />
+        <s:attribute name="OldPassword" type="s:string" />
+        <s:attribute name="NewPassword" type="s:string" />
+      </s:complexType>
+      <s:element name="ChangePasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChangePasswordResult" type="tns:ChangePasswordResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ChangePasswordResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResultBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetUserProfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUserProfileRequest" type="tns:GetUserProfileRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetUserProfileRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BranchID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncludeDeleted" nillable="true" type="s:boolean" />
+        </s:sequence>
+        <s:attribute name="BranchCode" type="s:string" />
+        <s:attribute name="UserName" type="s:string" />
+      </s:complexType>
+      <s:element name="GetUserProfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserProfileResult" type="tns:GetUserProfileResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetUserProfileResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResultBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="UserProfile" type="tns:UserProfile" />
+              <s:element minOccurs="0" maxOccurs="1" name="AgencyProfile" type="tns:AgencyProfile" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Token" type="s1:guid" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="GetUsersInAgency">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUsersInAgencyRequest" type="tns:GetUsersInAgencyRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetUsersInAgencyRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BranchID" nillable="true" type="s:int" />
+        </s:sequence>
+        <s:attribute name="BranchCode" type="s:string" />
+      </s:complexType>
+      <s:element name="GetUsersInAgencyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUsersInAgencyResult" type="tns:GetUsersInAgencyResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetUsersInAgencyResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResultBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Users" type="tns:ArrayOfUserProfile" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfUserProfile">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UserProfile" nillable="true" type="tns:UserProfile" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUserNamesInAgency">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUsersInAgencyRequest" type="tns:GetUsersInAgencyRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserNamesInAgencyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserNamesInAgencyResult" type="tns:GetUserNamesInAgencyResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetUserNamesInAgencyResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserNames" type="tns:ArrayOfUserNameAndDisplayName" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUserNameAndDisplayName">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UserNameAndDisplayName" type="tns:UserNameAndDisplayName" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UserNameAndDisplayName">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateOrAddUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateOrAddUserRequest" type="tns:UpdateOrAddUserRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UpdateOrAddUserRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserProfile" type="tns:UserProfile" />
+          <s:element minOccurs="0" maxOccurs="1" name="TritonRoomsCredentials" type="tns:TritonRoomsCredentials" />
+          <s:element minOccurs="0" maxOccurs="1" name="ETripCredentials" type="tns:ETripCredentials" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToursCredentials" type="tns:ToursCredentials" />
+        </s:sequence>
+        <s:attribute name="IsUpdate" type="s:boolean" use="required" />
+      </s:complexType>
+      <s:complexType name="TritonRoomsCredentials">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="WebservicePrefix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WebserviceNetwork" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WebserviceUsername" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WebservicePassword" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WebserviceUserRef" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MasterWebservicePrefix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MasterWebserviceNetwork" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MasterWebserviceUsername" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MasterWebservicePassword" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MasterWebserviceUserRef" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UseMasterForBooking" nillable="true" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ETripCredentials">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BranchID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Brand" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DistributionChannel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncludeFlightContractDetails" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncludeContractURLs" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncludePriceBreakdowns" nillable="true" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ToursCredentials">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BranchCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateOrAddUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateOrAddUserResult" type="tns:UpdateOrAddUserResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UpdateOrAddUserResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResultBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="UpdateAgency">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateAgencyRequest" type="tns:UpdateAgencyRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UpdateAgencyRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BranchID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="tns:Address" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsABTARegistered" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsVATRegistered" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Enabled" nillable="true" type="s:boolean" />
+        </s:sequence>
+        <s:attribute name="BranchCode" type="s:string" />
+        <s:attribute name="Name" type="s:string" />
+        <s:attribute name="AgencyPassphrase" type="s:string" />
+        <s:attribute name="LandlineTelephoneNumber" type="s:string" />
+        <s:attribute name="FaxNumber" type="s:string" />
+        <s:attribute name="EmailAddress" type="s:string" />
+        <s:attribute name="FinanceConfiguration" type="s:string" />
+      </s:complexType>
+      <s:element name="UpdateAgencyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateAgencyResult" type="tns:UpdateAgencyResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UpdateAgencyResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResultBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetAgencyProfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAgencyProfileRequest" type="tns:GetAgencyProfileRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetAgencyProfileRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BranchID" nillable="true" type="s:int" />
+        </s:sequence>
+        <s:attribute name="BranchCode" type="s:string" />
+      </s:complexType>
+      <s:element name="GetAgencyProfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAgencyProfileResult" type="tns:GetAgencyProfileResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetAgencyProfileResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResultBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="AgencyProfile" type="tns:AgencyProfile" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="DeleteUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deleteUserRequest" type="tns:DeleteUserRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DeleteUserRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BranchID" nillable="true" type="s:int" />
+        </s:sequence>
+        <s:attribute name="BranchCode" type="s:string" />
+        <s:attribute name="UserName" type="s:string" />
+      </s:complexType>
+      <s:element name="DeleteUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteUserResult" type="tns:DeleteUserResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DeleteUserResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResultBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="FindNearestAgencies">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="findNearestAgenciesRequest" type="tns:FindNearestAgenciesRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FindNearestAgenciesRequest">
+        <s:attribute name="Postcode" type="s:string" />
+        <s:attribute name="Radius" type="s:int" use="required" />
+        <s:attribute name="Brand" type="s:string" />
+      </s:complexType>
+      <s:element name="FindNearestAgenciesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindNearestAgenciesResult" type="tns:FindNearestAgenciesResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FindNearestAgenciesResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResultBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Latitude" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="Longitude" type="s:double" />
+              <s:element minOccurs="0" maxOccurs="1" name="AgencyPositions" type="tns:ArrayOfAgencyProfilePosition" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfAgencyProfilePosition">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AgencyProfilePosition" nillable="true" type="tns:AgencyProfilePosition" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AgencyProfilePosition">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AgencyProfile" type="tns:AgencyProfile" />
+          <s:element minOccurs="1" maxOccurs="1" name="Latitude" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Longitude" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Distance" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserProfile" type="tns:UserProfile" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AuthenticateSoapIn">
+    <wsdl:part name="parameters" element="tns:Authenticate" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResendPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:ResendPassword" />
+  </wsdl:message>
+  <wsdl:message name="ResendPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:ResendPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResetPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:ResetPassword" />
+  </wsdl:message>
+  <wsdl:message name="ResetPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:ResetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProfileSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserProfile" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProfileSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProfileAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersInAgencySoapIn">
+    <wsdl:part name="parameters" element="tns:GetUsersInAgency" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersInAgencySoapOut">
+    <wsdl:part name="parameters" element="tns:GetUsersInAgencyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersInAgencyAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetUserNamesInAgencySoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserNamesInAgency" />
+  </wsdl:message>
+  <wsdl:message name="GetUserNamesInAgencySoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserNamesInAgencyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserNamesInAgencyAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOrAddUserSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateOrAddUser" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOrAddUserSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateOrAddUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOrAddUserAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAgencySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAgency" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAgencySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAgencyResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAgencyAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetAgencyProfileSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAgencyProfile" />
+  </wsdl:message>
+  <wsdl:message name="GetAgencyProfileSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAgencyProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAgencyProfileAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUserSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUserSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUserAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="FindNearestAgenciesSoapIn">
+    <wsdl:part name="parameters" element="tns:FindNearestAgencies" />
+  </wsdl:message>
+  <wsdl:message name="FindNearestAgenciesSoapOut">
+    <wsdl:part name="parameters" element="tns:FindNearestAgenciesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DirectoryServiceSoap">
+    <wsdl:operation name="Authenticate">
+      <wsdl:input message="tns:AuthenticateSoapIn" />
+      <wsdl:output message="tns:AuthenticateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResendPassword">
+      <wsdl:input message="tns:ResendPasswordSoapIn" />
+      <wsdl:output message="tns:ResendPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <wsdl:input message="tns:ResetPasswordSoapIn" />
+      <wsdl:output message="tns:ResetPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input message="tns:ChangePasswordSoapIn" />
+      <wsdl:output message="tns:ChangePasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProfile">
+      <wsdl:input message="tns:GetUserProfileSoapIn" />
+      <wsdl:output message="tns:GetUserProfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersInAgency">
+      <wsdl:input message="tns:GetUsersInAgencySoapIn" />
+      <wsdl:output message="tns:GetUsersInAgencySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserNamesInAgency">
+      <wsdl:input message="tns:GetUserNamesInAgencySoapIn" />
+      <wsdl:output message="tns:GetUserNamesInAgencySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrAddUser">
+      <wsdl:input message="tns:UpdateOrAddUserSoapIn" />
+      <wsdl:output message="tns:UpdateOrAddUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAgency">
+      <wsdl:input message="tns:UpdateAgencySoapIn" />
+      <wsdl:output message="tns:UpdateAgencySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgencyProfile">
+      <wsdl:input message="tns:GetAgencyProfileSoapIn" />
+      <wsdl:output message="tns:GetAgencyProfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input message="tns:DeleteUserSoapIn" />
+      <wsdl:output message="tns:DeleteUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindNearestAgencies">
+      <wsdl:input message="tns:FindNearestAgenciesSoapIn" />
+      <wsdl:output message="tns:FindNearestAgenciesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DirectoryServiceSoap" type="tns:DirectoryServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Authenticate">
+      <soap:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/Authenticate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResendPassword">
+      <soap:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/ResendPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <soap:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/ResetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProfile">
+      <soap:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/GetUserProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetUserProfileAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersInAgency">
+      <soap:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/GetUsersInAgency" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetUsersInAgencyAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserNamesInAgency">
+      <soap:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/GetUserNamesInAgency" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetUserNamesInAgencyAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrAddUser">
+      <soap:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/UpdateOrAddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateOrAddUserAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAgency">
+      <soap:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/UpdateAgency" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateAgencyAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgencyProfile">
+      <soap:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/GetAgencyProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAgencyProfileAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DeleteUserAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindNearestAgencies">
+      <soap:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/FindNearestAgencies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DirectoryServiceSoap12" type="tns:DirectoryServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Authenticate">
+      <soap12:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/Authenticate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResendPassword">
+      <soap12:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/ResendPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <soap12:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/ResetPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap12:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProfile">
+      <soap12:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/GetUserProfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetUserProfileAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersInAgency">
+      <soap12:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/GetUsersInAgency" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetUsersInAgencyAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserNamesInAgency">
+      <soap12:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/GetUserNamesInAgency" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetUserNamesInAgencyAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrAddUser">
+      <soap12:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/UpdateOrAddUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateOrAddUserAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAgency">
+      <soap12:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/UpdateAgency" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateAgencyAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgencyProfile">
+      <soap12:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/GetAgencyProfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetAgencyProfileAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap12:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DeleteUserAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindNearestAgencies">
+      <soap12:operation soapAction="http://stellatravelgateway.stellatravel.co.uk/FindNearestAgencies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DirectoryService">
+    <wsdl:port name="DirectoryServiceSoap" binding="tns:DirectoryServiceSoap">
+      <soap:address location="http://stellatravelgateway.stellatravelservices.co.uk/DirectoryService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DirectoryServiceSoap12" binding="tns:DirectoryServiceSoap12">
+      <soap12:address location="http://stellatravelgateway.stellatravelservices.co.uk/DirectoryService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

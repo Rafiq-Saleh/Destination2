@@ -20,6 +20,27 @@ namespace Destination2.WebUi
                 new { controller = "Search", action = "ProcessSearchFormInput", id = UrlParameter.Optional, area = "Search" },
                 new[] { "Destination2.WebUi.Search.Controllers" }
             );
+
+            context.MapRoute(
+                "PackageSerarchWaitFlight",
+                "Search/Package-Flight-Wait",
+                new { controller = "Wait", action = "FlightWait", id = UrlParameter.Optional, area = "Search" },
+                new[] { "Destination2.WebUi.Search.Controllers" }
+            );
+
+            context.MapRoute(
+                "PackageSerarchWaitFlightSearchStart",
+                "Search/Package-Flight-Start",
+                new { controller = "Wait", action = "FlightSearchStart", id = UrlParameter.Optional, area = "Search" },
+                new[] { "Destination2.WebUi.Search.Controllers" }
+            );
+
+            context.MapRoute(
+               "PackageSearchWaitFlightSearchStart",
+               "Search/Package-Flight-Results",
+               new { controller = "Results", action = "FlightResults", id = UrlParameter.Optional, area = "Search" },
+               new[] { "Destination2.WebUi.Search.Controllers" }
+           );
         }
     }
 }

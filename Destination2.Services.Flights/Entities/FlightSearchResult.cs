@@ -14,5 +14,11 @@ namespace Destination2.Services.Flights.Entities
 
         [DataMember]
         public int FlightSearchId{get;set;}
+
+        [DataMember]
+        public bool Success { get; set; }
+
+        [DataMember]
+        public string ErrorMessage { get; set; }
     }
 }

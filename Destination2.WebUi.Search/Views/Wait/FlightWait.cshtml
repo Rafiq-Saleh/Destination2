@@ -1,0 +1,34 @@
+﻿@model Destination2.WebUi.Search.Models.FlightWaitViewModel
+@{
+    ViewBag.Title = "FlightWait";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>This is the package wait page</h2>
+<p>There is going to be some fancy page here prob scrolling through differnet images</p>
+
+@section Javascript
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                url: '/Search/Package-Flight-Start',
+                type: 'POST',
+                data: "{id: @Model.Id}",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.success)
+                        window.location = '/Search/Package-Flight-Results/?id=@Model.Id';                    
+                    else
+                        alert(data.error);
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        });
+    </script>
+}
+
+
+

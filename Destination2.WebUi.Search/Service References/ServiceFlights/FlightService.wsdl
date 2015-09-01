@@ -13,16 +13,54 @@
   <wsdl:message name="IFlightService_StartSearch_OutputMessage">
     <wsdl:part name="parameters" element="tns:StartSearchResponse" />
   </wsdl:message>
+  <wsdl:message name="IFlightService_RetriveSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetriveSearch" />
+  </wsdl:message>
+  <wsdl:message name="IFlightService_RetriveSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetriveSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlightService_PerformSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:PerformSearch" />
+  </wsdl:message>
+  <wsdl:message name="IFlightService_PerformSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PerformSearchResponse" />
+  </wsdl:message>
   <wsdl:portType name="IFlightService">
     <wsdl:operation name="StartSearch">
       <wsdl:input wsaw:Action="http://tempuri.org/IFlightService/StartSearch" message="tns:IFlightService_StartSearch_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFlightService/StartSearchResponse" message="tns:IFlightService_StartSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetriveSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlightService/RetriveSearch" message="tns:IFlightService_RetriveSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlightService/RetriveSearchResponse" message="tns:IFlightService_RetriveSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PerformSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlightService/PerformSearch" message="tns:IFlightService_PerformSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlightService/PerformSearchResponse" message="tns:IFlightService_PerformSearch_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IFlightService" type="tns:IFlightService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="StartSearch">
       <soap:operation soapAction="http://tempuri.org/IFlightService/StartSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetriveSearch">
+      <soap:operation soapAction="http://tempuri.org/IFlightService/RetriveSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PerformSearch">
+      <soap:operation soapAction="http://tempuri.org/IFlightService/PerformSearch" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

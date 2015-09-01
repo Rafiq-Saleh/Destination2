@@ -99,8 +99,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Service References\ServiceFlights\Destination2.WebUi.Search.ServiceFlights.FlightSearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Service References\ServiceFlights\Destination2.WebUi.Search.ServiceFlights.FlightSearch.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\ServiceFlights\FlightService.disco" />
@@ -115,10 +132,15 @@
   <ItemGroup>
     <Compile Include="App_Start\RazorGeneratorMvcStart.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Business\SessionService.cs" />
+    <Compile Include="Controllers\ResultsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\WaitController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\FlightResultViewModel.cs" />
+    <Compile Include="Models\FlightWaitViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchAreaRegistration.cs" />
     <Compile Include="Service References\ServiceFlights\Reference.cs">
@@ -130,6 +152,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SearchForm.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Results\FlightResults.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlightResults.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Wait\FlightWait.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlightWait.cshtml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +181,16 @@
     <None Include="Service References\ServiceFlights\FlightService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Wait\FlightWait.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>FlightWait.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Results\FlightResults.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>FlightResults.generated.cs</LastGenOutput>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -158,7 +200,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\Search\" />
   </ItemGroup>
   <ItemGroup>

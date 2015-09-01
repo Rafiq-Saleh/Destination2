@@ -122,10 +122,6 @@
       <Project>{4d74154b-1fcc-49a5-996b-e243e41edb5a}</Project>
       <Name>Destination2.WebUi.Home</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Destination2.WebUi.PackageSearch\Destination2.WebUi.PackageSearch.csproj">
-      <Project>{cf837180-b9d6-4c92-b2dd-fc322009caa0}</Project>
-      <Name>Destination2.WebUi.PackageSearch</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Destination2.WebUi.Search\Destination2.WebUi.Search.csproj">
       <Project>{95786ed4-4274-4627-8612-03de0c8ac7c6}</Project>
       <Name>Destination2.WebUi.Search</Name>

@@ -11,6 +11,9 @@ namespace Destination2.Services.Flights
         FlightSearchResult StartSearch(FlightSearch flightSearch);
 
         [OperationContract]
-        FlightSearchResult RetriveSearch(int id);
+        FlightSearch RetriveSearch(int id);
+
+        [OperationContract]
+        FlightSearchResult PerformSearch(FlightSearch flightSearch, int id);
     }
 }

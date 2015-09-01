@@ -1,4 +1,5 @@
 ﻿
+using Destination2.WebUi.Search.Business;
 using Destination2.WebUi.Search.ServiceFlights;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,10 @@ namespace Destination2.WebUi.Search.Controllers
                 IsPackage = true,
                 SearchType = "Package"
             });
+
+            // save this into session
+            SessionService sessionService = new SessionService();
+            sessionService.SetItem(SessionEnum.FlightSearch, flightSearchResult.FlightSearchId.ToString(), flightSearchResult);
 
             // this will change depending on the search type
             return Redirect("search/package-flight-wait/?id=" + flightSearchResult.FlightSearchId);

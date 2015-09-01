@@ -70,6 +70,174 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <None Include="Service References\AirService\AirService.disco" />
+    <None Include="Service References\AirService\configuration91.svcinfo" />
+    <None Include="Service References\AirService\configuration.svcinfo" />
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.AirCabinUpSellSearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.AirCommissionItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.AirCommissionSearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.AirConfirmCabinUpSellFlightResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.AirlineListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.AirportCityList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.AirResultSet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.AirResultSet_V2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.BookFlightResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.BookResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.CabinUpSellSearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.CheckAvailabilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.ConditionsResultSet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.ConfirmCabinUpSellFlightResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.ConfirmFlightDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.ConfirmFlightDetailsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.DeleteAgencyFlightCommissionItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.FaresOnlineCommissionLookupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.GetAgencyFlightCommissionItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.GetAirportOrCityListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.GetAirUsersInAgencyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.GetAirUsersInAgencyResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.GetAllAirlinesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.GetConditionsForShoppingBasketResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.GetConditionsFromPNRResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.GetConditionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.GetDefaultAgencyFlightCommissionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.GetOriginalSearchResultsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.InsertAgencyFlightCommissionItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.LookupFaresOnlineCommissionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.SaveAgencyFlightCommissionItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.SearchAgencyFlightCommissionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.SearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AirService\Destination2.Services.Flights.AirService.Search_V2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\AirService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\DirectoryService\Destination2.Services.Flights.DirectoryService.AuthenticateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DirectoryService\Destination2.Services.Flights.DirectoryService.ChangePasswordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DirectoryService\Destination2.Services.Flights.DirectoryService.DeleteUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DirectoryService\Destination2.Services.Flights.DirectoryService.DeleteUserResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DirectoryService\Destination2.Services.Flights.DirectoryService.FindNearestAgenciesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DirectoryService\Destination2.Services.Flights.DirectoryService.GetAgencyProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DirectoryService\Destination2.Services.Flights.DirectoryService.GetAgencyProfileResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DirectoryService\Destination2.Services.Flights.DirectoryService.GetUserNamesInAgencyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DirectoryService\Destination2.Services.Flights.DirectoryService.GetUserNamesInAgencyResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DirectoryService\Destination2.Services.Flights.DirectoryService.GetUserProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DirectoryService\Destination2.Services.Flights.DirectoryService.GetUserProfileResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DirectoryService\Destination2.Services.Flights.DirectoryService.GetUsersInAgencyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DirectoryService\Destination2.Services.Flights.DirectoryService.GetUsersInAgencyResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DirectoryService\Destination2.Services.Flights.DirectoryService.ResendPasswordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DirectoryService\Destination2.Services.Flights.DirectoryService.ResetPasswordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DirectoryService\Destination2.Services.Flights.DirectoryService.UpdateAgencyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DirectoryService\Destination2.Services.Flights.DirectoryService.UpdateAgencyResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DirectoryService\Destination2.Services.Flights.DirectoryService.UpdateOrAddUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DirectoryService\Destination2.Services.Flights.DirectoryService.UpdateOrAddUserResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\AirService\AirService.wsdl" />
+    <None Include="Service References\DirectoryService\DirectoryService.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -79,11 +247,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="FlightService.svc" />
+    <None Include="Service References\DirectoryService\DirectoryService.disco" />
+    <None Include="Service References\DirectoryService\configuration91.svcinfo" />
+    <None Include="Service References\DirectoryService\configuration.svcinfo" />
+    <None Include="Service References\DirectoryService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\Search\Search.cs" />
-    <Compile Include="Business\SessionService.cs" />
     <Compile Include="Data\SearchRepository.cs" />
     <Compile Include="Entities\FlightSearch.cs" />
     <Compile Include="Entities\FlightSearchResult.cs" />
@@ -93,10 +267,27 @@
     </Compile>
     <Compile Include="IFlightService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\AirService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\DirectoryService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Tests\Intergration\" />
     <Folder Include="Tests\Unit\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AirService\" />
+    <WCFMetadataStorage Include="Service References\DirectoryService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
