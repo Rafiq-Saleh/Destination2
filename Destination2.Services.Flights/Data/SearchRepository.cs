@@ -21,6 +21,7 @@ namespace Destination2.Services.Flights.Data
 
         public int SearchFlightStart(FlightSearch flightSearch)
         {
+           
             int newRow;
             using (var conn = new SqlConnection(connectionString))
             {
