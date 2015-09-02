@@ -1,11 +1,15 @@
 ﻿using Destination2.Services.Flights.Business;
+using Destination2.Services.Flights.Business.Cache;
 using Destination2.Services.Flights.Business.Search;
+using Destination2.Services.Flights.Business.Startup;
+using Destination2.Services.Flights.Business.Supplier;
 using Destination2.Services.Flights.Data;
 using Destination2.Services.Flights.Entities;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Runtime.Caching;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
@@ -16,13 +20,23 @@ namespace Destination2.Services.Flights
     // NOTE: In order to launch WCF Test Client for testing this service, please select FlightService.svc or FlightService.svc.cs at the Solution Explorer and start debugging.
     public class FlightService : IFlightService
     {
-       private ISearchRepository searchRepository;
-        private ISearch search;
+        // data
+        private ISearchRepository searchRepository;
+
+        // business
+        private ISearchService search;
+        private ICacheService<CacheServiceEnum> cacheService;
+        private IGatewayService gatewayService;
 
         public FlightService()
-        {          
+        {   
+            // data       
             searchRepository = new SearchRepository(ConfigurationManager.ConnectionStrings["Destination2"].ConnectionString);
-            search = new Search(searchRepository);
+
+            // business
+            cacheService = new CacheService(MemoryCache.Default);
+            gatewayService = new GatewayService(InitializeService.Settings, cacheService);
+            search = new SearchService(searchRepository, gatewayService);
         }
 
         public FlightSearchResult StartSearch(FlightSearch flightSearch)
