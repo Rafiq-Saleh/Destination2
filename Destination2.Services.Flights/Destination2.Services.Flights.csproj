@@ -49,6 +49,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
@@ -69,6 +70,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <None Include="Service References\AirService\AirService.disco" />
     <None Include="Service References\AirService\configuration91.svcinfo" />
@@ -257,13 +259,19 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business\Search\Search.cs" />
+    <Compile Include="Business\Cache\CacheService.cs" />
+    <Compile Include="Business\Search\SearchService.cs" />
+    <Compile Include="Business\Startup\InitializeService.cs" />
+    <Compile Include="Business\Supplier\GatewayService.cs" />
     <Compile Include="Data\SearchRepository.cs" />
     <Compile Include="Entities\FlightSearch.cs" />
     <Compile Include="Entities\FlightSearchResult.cs" />
-    <Compile Include="Entities\SessionEnum.cs" />
+    <Compile Include="Entities\Settings.cs" />
     <Compile Include="FlightService.svc.cs">
       <DependentUpon>FlightService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="IFlightService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
