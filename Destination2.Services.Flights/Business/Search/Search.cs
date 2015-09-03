@@ -25,7 +25,6 @@ namespace Destination2.Services.Flights.Business.Search
             this.searchRepository = searchRepository;
         }
 
-
         public FlightSearchResult PerformSearch(FlightSearch flightSearch, int searchId)
         {
             FlightSearchResult flightSearchResult = new FlightSearchResult();
@@ -114,7 +113,11 @@ namespace Destination2.Services.Flights.Business.Search
         public FlightSearchResult StartSearch(FlightSearch flightSearch)
         {
             // Validate the search
-
+            if (validateFlightSearch(flightSearch))
+            {
+                //alert user of the error
+                return null;
+            }
             // save all to the database that is needed this included what the customer searched for so we can report on it later
             var searchId = searchRepository.SearchFlightStart(flightSearch);
             
@@ -129,6 +132,23 @@ namespace Destination2.Services.Flights.Business.Search
                               
             // return as we are done here
             return flightSearchResult;
+        }
+
+        private bool validateFlightSearch(FlightSearch flightSearch)
+        {
+           // string error = "";
+            if (flightSearch.DepartureDate <= DateTime.Now)
+            {
+               // error += "Please select a valid departure date";
+                return false;
+            }
+            if (flightSearch.ReturnDate <= flightSearch.DepartureDate)
+            {
+               // error += "Please select a valid return date";
+                return false;
+            }
+            // add other validation if necessary
+            return true;
         }
 
         public FlightSearch RetriveSearch(int id)

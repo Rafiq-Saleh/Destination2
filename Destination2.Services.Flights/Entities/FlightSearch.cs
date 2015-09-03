@@ -34,10 +34,10 @@ namespace Destination2.Services.Flights.Entities
         public int NumberOfInfants { get; set; }         
 
         [DataMember]
-        public int AirlineClassID { get; set; }
+        public int CabinClassID { get; set; }
 
         [DataMember]
-        public bool SearchDirectOnly { get; set; }
+        public bool DirectFlightsOnly { get; set; }
 
 
 

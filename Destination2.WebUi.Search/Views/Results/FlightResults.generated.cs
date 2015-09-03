@@ -56,6 +56,11 @@ Write(Model.Message);
             #line hidden
 WriteLiteral("</h2>\r\n\r\n");
 
+            WriteLiteral("<table>  <thead> <tr> <th> Image </th> <th> Description </th> <th> Price </th> </tr></thead> " +
+            "<tbody><tr><td>Atlantis The Palm - Dubai Beach</td><td> "+
+                  "  The Legend of Atlantis is brought to life in modern day Dubai at this iconic resort.It is situated on its own beautiful, man - made island and has unique architecture which is breathtaking to behold.If you’re looking for a five star hotel in Dubai, look no further. "+
+                "</td><td>£310.96</td></tr></tbody></table> ");
+
         }
     }
 }

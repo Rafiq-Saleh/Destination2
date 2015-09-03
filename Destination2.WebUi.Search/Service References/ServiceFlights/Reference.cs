@@ -23,7 +23,34 @@ namespace Destination2.WebUi.Search.ServiceFlights {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CabinClassIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int DepartureAirportIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DepartureDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int DestinationAirportIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool DirectFlightsOnlyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool IsPackageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NumberOfAdultsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NumberOfChildrenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NumberOfInfantsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime ReturnDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SearchTypeField;
@@ -39,6 +66,71 @@ namespace Destination2.WebUi.Search.ServiceFlights {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CabinClassID {
+            get {
+                return this.CabinClassIDField;
+            }
+            set {
+                if ((this.CabinClassIDField.Equals(value) != true)) {
+                    this.CabinClassIDField = value;
+                    this.RaisePropertyChanged("CabinClassID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int DepartureAirportID {
+            get {
+                return this.DepartureAirportIDField;
+            }
+            set {
+                if ((this.DepartureAirportIDField.Equals(value) != true)) {
+                    this.DepartureAirportIDField = value;
+                    this.RaisePropertyChanged("DepartureAirportID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DepartureDate {
+            get {
+                return this.DepartureDateField;
+            }
+            set {
+                if ((this.DepartureDateField.Equals(value) != true)) {
+                    this.DepartureDateField = value;
+                    this.RaisePropertyChanged("DepartureDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int DestinationAirportID {
+            get {
+                return this.DestinationAirportIDField;
+            }
+            set {
+                if ((this.DestinationAirportIDField.Equals(value) != true)) {
+                    this.DestinationAirportIDField = value;
+                    this.RaisePropertyChanged("DestinationAirportID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool DirectFlightsOnly {
+            get {
+                return this.DirectFlightsOnlyField;
+            }
+            set {
+                if ((this.DirectFlightsOnlyField.Equals(value) != true)) {
+                    this.DirectFlightsOnlyField = value;
+                    this.RaisePropertyChanged("DirectFlightsOnly");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public bool IsPackage {
             get {
                 return this.IsPackageField;
@@ -47,6 +139,58 @@ namespace Destination2.WebUi.Search.ServiceFlights {
                 if ((this.IsPackageField.Equals(value) != true)) {
                     this.IsPackageField = value;
                     this.RaisePropertyChanged("IsPackage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NumberOfAdults {
+            get {
+                return this.NumberOfAdultsField;
+            }
+            set {
+                if ((this.NumberOfAdultsField.Equals(value) != true)) {
+                    this.NumberOfAdultsField = value;
+                    this.RaisePropertyChanged("NumberOfAdults");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NumberOfChildren {
+            get {
+                return this.NumberOfChildrenField;
+            }
+            set {
+                if ((this.NumberOfChildrenField.Equals(value) != true)) {
+                    this.NumberOfChildrenField = value;
+                    this.RaisePropertyChanged("NumberOfChildren");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NumberOfInfants {
+            get {
+                return this.NumberOfInfantsField;
+            }
+            set {
+                if ((this.NumberOfInfantsField.Equals(value) != true)) {
+                    this.NumberOfInfantsField = value;
+                    this.RaisePropertyChanged("NumberOfInfants");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime ReturnDate {
+            get {
+                return this.ReturnDateField;
+            }
+            set {
+                if ((this.ReturnDateField.Equals(value) != true)) {
+                    this.ReturnDateField = value;
+                    this.RaisePropertyChanged("ReturnDate");
                 }
             }
         }
