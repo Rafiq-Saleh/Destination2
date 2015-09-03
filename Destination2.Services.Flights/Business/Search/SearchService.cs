@@ -1,12 +1,8 @@
 ﻿using Destination2.Services.Flights.AirService;
 using Destination2.Services.Flights.Business.Supplier;
 using Destination2.Services.Flights.Data;
-using Destination2.Services.Flights.DirectoryService;
 using Destination2.Services.Flights.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Destination2.Services.Flights.Business.Search
 {
@@ -30,12 +26,8 @@ namespace Destination2.Services.Flights.Business.Search
 
         public FlightSearchResult PerformSearch(FlightSearch flightSearch, int searchId)
         {
-            FlightSearchResult flightSearchResult = new FlightSearchResult();
-
-
-            DirectoryServiceSoapClient directoryServiceSoapClient = new DirectoryServiceSoapClient();
-            AirServiceSoapClient airServiceSoapClient = new AirServiceSoapClient();
-            // again this is very naughty tut tut this should be in a settings file on application start that is read from the webconfig
+            FlightSearchResult flightSearchResult = new FlightSearchResult();            
+            AirServiceSoapClient airServiceSoapClient = new AirServiceSoapClient();            
 
             var authenticateResponse = gatewayService.GetToken();            
 
