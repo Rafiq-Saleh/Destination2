@@ -141,6 +141,7 @@
     </Compile>
     <Compile Include="Models\FlightResultViewModel.cs" />
     <Compile Include="Models\FlightWaitViewModel.cs" />
+    <Compile Include="Models\SearchForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchAreaRegistration.cs" />
     <Compile Include="Service References\ServiceFlights\Reference.cs">
@@ -191,6 +192,7 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>FlightResults.generated.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\Search\Search.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -200,7 +202,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Search\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
